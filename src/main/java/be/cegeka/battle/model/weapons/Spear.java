@@ -4,7 +4,7 @@ import be.cegeka.battle.model.Weapon;
 
 public class Spear extends Weapon {
     @Override
-    public int getDamage() {
+    public int getDamageAgainst(Weapon weapon) {
         return 2;
     }
 
