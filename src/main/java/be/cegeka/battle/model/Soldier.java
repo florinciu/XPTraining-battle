@@ -37,4 +37,8 @@ public class Soldier {
     public void setId(int id) {
         this.id = id;
     }
+
+    public boolean hasBetterWeapon(Soldier defender) {
+        return weapon.hasHigherDamageThan(defender.getWeapon());
+    }
 }

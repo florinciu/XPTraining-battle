@@ -19,8 +19,8 @@ public class WarTest {
     class FightAlwaysFirstWinsStub extends Fight {
 
         @Override
-        public Soldier fight(Soldier soldier1, Soldier soldier2) {
-            return soldier1;
+        public Soldier fight(Soldier attacker, Soldier defender) {
+            return attacker;
         }
     }
 }

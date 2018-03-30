@@ -2,9 +2,9 @@ package be.cegeka.battle.model.weapons;
 
 import be.cegeka.battle.model.Weapon;
 
-public class BareFist extends Weapon {
+public class TwoHandedSword extends Sword {
     @Override
     public int getDamageAgainst(Weapon weapon) {
-        return 1;
+        return 5;
     }
 }
