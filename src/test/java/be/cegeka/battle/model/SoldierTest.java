@@ -1,7 +1,7 @@
 package be.cegeka.battle.model;
 
 import be.cegeka.battle.model.weapons.BareFist;
-import org.assertj.core.api.Assertions;
+import be.cegeka.battle.model.weapons.MagicPotion;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,10 +30,24 @@ public class SoldierTest {
         new Soldier("   ");
     }
 
+    @Test(expected = RuntimeException.class)
+    public void setWeapon_normalSoldierCannotHandleSpecialWeapon() {
+        Soldier soldier = new Soldier("soldier one");
+        soldier.setWeapon(new MagicPotion());
+    }
+
     @Test
-    public void construction_ASoldierHasByDefaultBareFistWeapon(){
+    public void setWeapon_specializedSoldierCanHandleSpecialWeapon() {
+        Soldier soldier = new SpecializedSoldier("soldier one");
+        soldier.setWeapon(new MagicPotion());
+    }
+
+    @Test
+    public void construction_ASoldierHasByDefaultBareFistWeapon() {
         Soldier soldier = new Soldier("me");
 
         assertThat(soldier.getWeapon()).isExactlyInstanceOf(BareFist.class);
     }
+
+
 }

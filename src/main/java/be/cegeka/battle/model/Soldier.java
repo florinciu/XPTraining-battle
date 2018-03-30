@@ -1,6 +1,7 @@
 package be.cegeka.battle.model;
 
 import be.cegeka.battle.model.weapons.BareFist;
+import be.cegeka.battle.model.weapons.SpecializedWeapon;
 import org.apache.commons.lang3.Validate;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
@@ -27,6 +28,9 @@ public class Soldier {
     }
 
     public void setWeapon(Weapon weapon) {
+        if (weapon instanceof SpecializedWeapon && !(this instanceof SpecializedSoldier)) {
+            throw new RuntimeException("This soldier cannot handle this weapon!");
+        }
         this.weapon = weapon;
     }
 
@@ -41,4 +45,6 @@ public class Soldier {
     public boolean hasBetterWeapon(Soldier defender) {
         return weapon.hasHigherDamageThan(defender.getWeapon());
     }
+
+
 }
