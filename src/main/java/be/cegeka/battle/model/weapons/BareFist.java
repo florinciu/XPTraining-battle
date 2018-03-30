@@ -7,4 +7,9 @@ public class BareFist extends Weapon {
     public int getDamage() {
         return 1;
     }
+
+    @Override
+    public int getBonusDamageAgainst(Weapon weapon) {
+        return 0;
+    }
 }

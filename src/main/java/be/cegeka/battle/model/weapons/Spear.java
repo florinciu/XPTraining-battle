@@ -7,4 +7,11 @@ public class Spear extends Weapon {
     public int getDamage() {
         return 2;
     }
+
+    @Override
+    public int getBonusDamageAgainst(Weapon weapon) {
+        if(weapon instanceof Sword)
+            return 3;
+        return 0;
+    }
 }
