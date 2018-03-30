@@ -29,4 +29,8 @@ public class Soldier {
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
+
+    public boolean hasBetterWeapon(Soldier soldier2) {
+        return weapon.hasHigherDamageThan(soldier2.getWeapon());
+    }
 }
