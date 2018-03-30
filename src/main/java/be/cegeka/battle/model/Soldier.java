@@ -1,5 +1,6 @@
 package be.cegeka.battle.model;
 
+import be.cegeka.battle.model.weapons.Axe;
 import be.cegeka.battle.model.weapons.BareFist;
 import org.apache.commons.lang3.Validate;
 
@@ -23,5 +24,9 @@ public class Soldier {
 
     public Weapon getWeapon() {
         return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }
