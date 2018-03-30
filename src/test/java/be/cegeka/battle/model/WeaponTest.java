@@ -1,9 +1,6 @@
 package be.cegeka.battle.model;
 
-import be.cegeka.battle.model.weapons.Axe;
-import be.cegeka.battle.model.weapons.BareFist;
-import be.cegeka.battle.model.weapons.Spear;
-import be.cegeka.battle.model.weapons.Sword;
+import be.cegeka.battle.model.weapons.*;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,5 +29,37 @@ public class WeaponTest {
     public void getDamage_ASwordHas2Damage() {
         Sword sword = new Sword();
         assertThat(sword.getDamage()).isEqualTo(2);
+    }
+
+    @Test
+    public void getDamage_ATwoHandedSwordHas5Damage() {
+        TwoHandedSword weapon = new TwoHandedSword();
+        assertThat(weapon.getDamage()).isEqualTo(5);
+    }
+
+    @Test
+    public void getDamage_ABroadAxeHas6Damage() {
+        BroadAxe weapon = new BroadAxe();
+        assertThat(weapon.getDamage()).isEqualTo(6);
+    }
+
+    @Test
+    public void getDamage_ATridentHas6Damage() {
+        Trident weapon = new Trident();
+        assertThat(weapon.getDamage()).isEqualTo(6);
+    }
+
+    @Test
+    public void getDamage_AMagicPotionHas10DamageIfTheOponentHasEvenDamage() {
+        MagicPotion weapon = new MagicPotion();
+        weapon.setEnemyDamage(6);
+        assertThat(weapon.getDamage()).isEqualTo(10);
+    }
+
+    @Test
+    public void getDamage_AMagicPotionHas0DamageIfTheOponentHasOddDamage() {
+        MagicPotion weapon = new MagicPotion();
+        weapon.setEnemyDamage(7);
+        assertThat(weapon.getDamage()).isEqualTo(0);
     }
 }
