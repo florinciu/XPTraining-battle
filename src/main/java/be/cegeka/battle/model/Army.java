@@ -10,7 +10,7 @@ public class Army {
 
     public void enroll(Soldier soldier) {
         soldiers.add(soldier);
-        int id=headquarters.reportEnlistment(soldier.getName());
+        int id = headquarters.reportEnlistment(soldier.getName());
         soldier.setId(id);
     }
 
@@ -29,6 +29,7 @@ public class Army {
         if (frontSoldier == null) {
             throw new RuntimeException("Army has no more soldiers.");
         }
+        headquarters.reportCasualty(frontSoldier.getId());
         soldiers.remove(frontSoldier);
     }
 

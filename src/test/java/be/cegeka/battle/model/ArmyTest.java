@@ -2,6 +2,11 @@ package be.cegeka.battle.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.internal.util.reflection.Whitebox;
+
+import static org.mockito.Mockito.verify;
 
 public class ArmyTest {
     @Test
@@ -21,6 +26,30 @@ public class ArmyTest {
 
         Assertions.assertThat(soldier.getId()).isEqualTo(1);
     }
+
+    @Test
+    public void enroll_ShouldCallHQ() {
+        Soldier soldier = new Soldier("name");
+        Headquarters hq = Mockito.mock(Headquarters.class);
+        Army army = new Army();
+        Whitebox.setInternalState(army, "headquarters", hq);
+        army.enroll(soldier);
+
+        verify(hq).reportEnlistment("name");
+    }
+
+    @Test
+    public void killFrontSoldier_ShouldCallHQ() {
+        Soldier soldier = new Soldier("name");
+        Headquarters hq = Mockito.mock(Headquarters.class);
+        Army army = new Army();
+        army.enroll(soldier);
+        Whitebox.setInternalState(army, "headquarters", hq);
+        army.killFrontSoldier();
+
+        verify(hq).reportCasualty(soldier.getId());
+    }
+
 
     @Test
     public void getFrontSoldier_shouldReturnTheFirstEnrolledSoldier() {
