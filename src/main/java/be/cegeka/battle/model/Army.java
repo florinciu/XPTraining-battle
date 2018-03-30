@@ -12,7 +12,13 @@ public class Army {
     }
 
     public Soldier getFrontSoldier() {
-        return soldiers.get(0);
+        Soldier soldier = null;
+        try {
+            soldier = soldiers.get(0);
+        } catch (IndexOutOfBoundsException ex) {
+            soldier = null;
+        }
+        return soldier;
     }
 
     public void killFrontSoldier() {
