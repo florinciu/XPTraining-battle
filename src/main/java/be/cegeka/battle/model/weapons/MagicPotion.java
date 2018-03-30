@@ -2,7 +2,7 @@ package be.cegeka.battle.model.weapons;
 
 import be.cegeka.battle.model.Weapon;
 
-public class MagicPotion extends Weapon {
+public class MagicPotion extends Weapon implements SpecializedWeapon{
 
     @Override
     public int getDamageAgainst(Weapon weapon) {
