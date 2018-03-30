@@ -14,6 +14,15 @@ public class ArmyTest {
     }
 
     @Test
+    public void enroll_ShouldSetAnIdToTheSoldier() {
+        Soldier soldier = new Soldier("name");
+        Army army = new Army();
+        army.enroll(soldier);
+
+        Assertions.assertThat(soldier.getId()).isEqualTo(1);
+    }
+
+    @Test
     public void getFrontSoldier_shouldReturnTheFirstEnrolledSoldier() {
         Soldier soldier1 = new Soldier("name1");
         Soldier soldier2 = new Soldier("name2");

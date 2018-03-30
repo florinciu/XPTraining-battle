@@ -6,9 +6,12 @@ import java.util.Objects;
 
 public class Army {
     private List<Soldier> soldiers = new LinkedList<>();
+    private Headquarters headquarters=new HeadquartersImpl();
 
     public void enroll(Soldier soldier) {
         soldiers.add(soldier);
+        int id=headquarters.reportEnlistment(soldier.getName());
+        soldier.setId(id);
     }
 
     public Soldier getFrontSoldier() {
@@ -23,7 +26,7 @@ public class Army {
 
     public void killFrontSoldier() {
         Soldier frontSoldier = getFrontSoldier();
-        if(frontSoldier == null) {
+        if (frontSoldier == null) {
             throw new RuntimeException("Army has no more soldiers.");
         }
         soldiers.remove(frontSoldier);

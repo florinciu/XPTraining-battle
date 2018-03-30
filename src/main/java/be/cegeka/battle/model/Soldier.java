@@ -1,6 +1,5 @@
 package be.cegeka.battle.model;
 
-import be.cegeka.battle.model.weapons.Axe;
 import be.cegeka.battle.model.weapons.BareFist;
 import org.apache.commons.lang3.Validate;
 
@@ -8,6 +7,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 public class Soldier {
 
+    private int id;
     private String name;
     private Weapon weapon;
 
@@ -28,5 +28,13 @@ public class Soldier {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
