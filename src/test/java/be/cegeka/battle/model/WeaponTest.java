@@ -75,33 +75,31 @@ public class WeaponTest {
     @Test
     public void getDamage_ATwoHandedSwordHas5Damage() {
         TwoHandedSword weapon = new TwoHandedSword();
-        assertThat(weapon.getDamage()).isEqualTo(5);
+        assertThat(weapon.getDamageAgainst(null)).isEqualTo(5);
     }
 
     @Test
     public void getDamage_ABroadAxeHas6Damage() {
         BroadAxe weapon = new BroadAxe();
-        assertThat(weapon.getDamage()).isEqualTo(6);
+        assertThat(weapon.getDamageAgainst(null)).isEqualTo(6);
     }
 
     @Test
     public void getDamage_ATridentHas6Damage() {
         Trident weapon = new Trident();
-        assertThat(weapon.getDamage()).isEqualTo(6);
+        assertThat(weapon.getDamageAgainst(null)).isEqualTo(6);
     }
 
     @Test
     public void getDamage_AMagicPotionHas10DamageIfTheOponentHasEvenDamage() {
         MagicPotion weapon = new MagicPotion();
-        weapon.setEnemyDamage(6);
-        assertThat(weapon.getDamage()).isEqualTo(10);
+        assertThat(weapon.getDamageAgainst(new Sword())).isEqualTo(10);
     }
 
     @Test
     public void getDamage_AMagicPotionHas0DamageIfTheOponentHasOddDamage() {
         MagicPotion weapon = new MagicPotion();
-        weapon.setEnemyDamage(7);
-        assertThat(weapon.getDamage()).isEqualTo(0);
+        assertThat(weapon.getDamageAgainst(new Axe())).isEqualTo(0);
     }
 
 }
