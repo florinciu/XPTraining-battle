@@ -1,9 +1,7 @@
-package be.cegeka.battle;
+package be.cegeka.battle.model;
 
-import be.cegeka.battle.model.Soldier;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class SoldierTest {
 
@@ -11,7 +9,7 @@ public class SoldierTest {
     public void construction_ASoldierMustHaveAName() {
         Soldier soldier = new Soldier("name");
 
-        assertThat(soldier.getName()).isEqualTo("name");
+        Assertions.assertThat(soldier.getName()).isEqualTo("name");
     }
 
     @Test(expected = IllegalArgumentException.class)
