@@ -30,7 +30,7 @@ public class Soldier {
         this.weapon = weapon;
     }
 
-    public boolean hasBetterWeapon(Soldier soldier2) {
-        return weapon.hasHigherDamageThan(soldier2.getWeapon());
+    public boolean hasBetterWeapon(Soldier defender) {
+        return weapon.hasHigherDamageThan(defender.getWeapon());
     }
 }
