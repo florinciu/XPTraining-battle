@@ -1,6 +1,7 @@
 package be.cegeka.battle.model;
 
 public abstract class Weapon {
+
     public abstract int getDamageAgainst(Weapon weapon);
 
     public int getBonusDamageAgainst(Weapon weapon) {
