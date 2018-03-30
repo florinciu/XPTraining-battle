@@ -22,6 +22,10 @@ public class Army {
     }
 
     public void killFrontSoldier() {
-        soldiers.remove(this.getFrontSoldier());
+        Soldier frontSoldier = getFrontSoldier();
+        if(frontSoldier == null) {
+            throw new RuntimeException("Army has no more soldiers.");
+        }
+        soldiers.remove(frontSoldier);
     }
 }
