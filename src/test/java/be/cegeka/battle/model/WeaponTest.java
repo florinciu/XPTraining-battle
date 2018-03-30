@@ -62,4 +62,28 @@ public class WeaponTest {
         weapon.setEnemyDamage(7);
         assertThat(weapon.getDamage()).isEqualTo(0);
     }
+
+    @Test
+    public void getBonusDamageOver_axeOverSpear() {
+        Weapon axe = new Axe();
+        Weapon spear = new Spear();
+
+        assertThat(axe.getBonusDamageAgainst(spear)).isEqualTo(3);
+    }
+
+    @Test
+    public void getBonusDamageOver_SpearOverSword() {
+        Weapon spear = new Spear();
+        Weapon sword = new Sword();
+
+        assertThat(spear.getBonusDamageAgainst(sword)).isEqualTo(3);
+    }
+
+    @Test
+    public void getBonusDamageOver_swordOverAxe() {
+        Weapon sword = new Sword();
+        Weapon axe = new Axe();
+
+        assertThat(sword.getBonusDamageAgainst(axe)).isEqualTo(3);
+    }
 }
