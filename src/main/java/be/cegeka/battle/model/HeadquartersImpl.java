@@ -17,12 +17,12 @@ public class HeadquartersImpl implements Headquarters {
 
     @Override
     public void reportCasualty(int soldierId) {
-
+        System.out.println(String.format("Soldier {} killed in action", soldiersRecord.get(soldierId)));
     }
 
     @Override
     public void reportVictory(int remainingNumberOfSoldiers) {
-
+        System.out.println(String.format("Victorious army has {} soldiers", remainingNumberOfSoldiers));
     }
 
     @Override
